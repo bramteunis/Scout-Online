@@ -330,11 +330,14 @@ mysqli_close($connectie);
 		  }
 
 		  $query = "SELECT week{$week} FROM {$group} WHERE naam = '{$getal1}'";
-
+			
+		  echo "<script>console.log('Query: " . $query . "' );</script>";
+			
 		  if(!$resultaat = mysqli_query($connectie, $query) ) {
 		    $boodschap .=  "query\" $query\" mislukt!"; 
 		  } else{
 		    $boodschap .= "query gelukt";
+		    echo "<script>console.log('Boodschap: " . $boodschap . "' );</script>";
 		  }
 		  
 		  while($rij = mysqli_fetch_array($resultaat)){
